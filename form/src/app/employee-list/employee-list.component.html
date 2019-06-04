@@ -1,0 +1,163 @@
+
+    <body>
+    
+        <h2> Create Employee -List:</h2>
+   
+    
+    <div class="container">
+      <form action="/action_page.php">
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Image</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="Image" name="Image" [(ngModel)] ="model.Image"placeholder="Enter your image">
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fname" name="firstname" [(ngModel)] ="model.name"placeholder="Your name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" [(ngModel)] ="model.lastName"placeholder="Your last name..">
+        </div>
+      </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="lname">Contact</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="contact" name="contact"[(ngModel)] ="model.contact" placeholder="Your contact number..">
+            </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">gender</label>
+        </div>
+        <div class="col-75">
+          <select id="gender" name="gender"[(ngModel)] ="model.gender">
+            <option value="Female">female</option>
+            <option value="Male" >Male</option>
+           
+          </select>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="lname">Organizational-Unit</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="organizationUnit" name="Organizational-Unit"[(ngModel)] ="model.organizationUnit" placeholder="Organizational-Unit">
+          </div>
+    </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Bio</label>
+        </div>
+        <div class="col-75">
+          <textarea id="subject" name="subject"[(ngModel)] ="model.bio" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit"  (click)="addEmployee()">Save</button>
+      </div>
+      </form>
+    </div>
+      <h2> Read data &(Delete data):</h2>
+    
+    <table>
+      <thead>
+      <tr>
+          <td><img src="/assets/1.jpg" class="img-fluid" alt="Responsive image" width="200px" height="200px"> </td>
+        <td> NAME</td>
+        <td> LastName</td>
+        <td> contact</td>
+        <td> Gender</td>
+        <td> Organizational-Unit</td>
+        <td> Bio</td>
+        <td> Action</td>
+        </tr>
+      </thead>
+          <tbody>
+       <tr *ngFor="let employee of employee; let index">
+         <td>{{employee.name}}</td>
+         <td>{{employee.lastName}}</td>
+         <td>{{employee.contact}}</td>
+         <td>{{employee.gender}}</td>
+         <td>{{employee.organizationUnit}}</td>
+         <td>{{employee.bio}}</td>
+        <td> <button type="submit" (click) ="editEmployee()">Edit</button>
+          <button type="submit" (click) ="deleteEmployee()">Delete</button></td>
+         </tr>
+        </tbody>
+      </table>
+      <h2>Update Employee Data</h2>
+      <div class="container">
+          <form action="/action_page.php">
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" [(ngModel)] ="model2.name"placeholder="Your name..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Last Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="lname" name="lastname" [(ngModel)] ="model2.lastName"placeholder="Your last name..">
+            </div>
+          </div>
+            <div class="row">
+                <div class="col-25">
+                  <label for="lname">Contact</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="contact" name="contact"[(ngModel)] ="model2.contact" placeholder="contact..">
+                </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">gender</label>
+            </div>
+            <div class="col-75">
+              <select id="gender" name="gender"[(ngModel)] ="model2.gender">
+                <option value="Female">female</option>
+                <option value="Male" >Male</option>
+               
+              </select>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-25">
+                <label for="lname">Organizational-Unit</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="Organizational-Unit" name="Organizational-Unit"[(ngModel)] ="model2.organizationUnit" placeholder="Organizational-Unit..">
+              </div>
+        </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Bio</label>
+            </div>
+            <div class="col-75">
+              <textarea id="subject" name="subject"[(ngModel)] ="model2.bio" placeholder="Write something.." style="height:200px"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit"  (click)="editEmployee()">Update</button>
+          </div>
+          </form>
+        </div>
+    
+    </body>
